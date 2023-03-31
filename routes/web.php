@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\MajorController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +14,9 @@ use App\Http\Controllers\PageController;
 |
 */
 
-Route::get('/', [PageController::class, 'index']);
+Route::get('/major', [MajorController::class, 'index']);
+Route::get('/major/create', [MajorController::class, 'create']);
+Route::post('/major', [MajorController::class, 'store']);
+Route::get('/major/{id}/edit', [MajorController::class, 'edit']);
+Route::put('/major/{id}', [MajorController::class, 'update']);
+Route::delete('/major/{id}', [MajorController::class, 'delete']);
