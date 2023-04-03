@@ -14,12 +14,22 @@
                                     id=""
                                     placeholder="name"
                                     v-model="name"
+                                    :class="{ 'is-invalid': errors.name }"
                                 />
+                                <span
+                                    class="invalid-feedback"
+                                    v-show="errors.name"
+                                    >{{ errors.name }}</span
+                                >
                             </div>
 
                             <div class="form-group">
                                 <label for="">Major</label>
-                                <select v-model="major_id" class="form-control">
+                                <select
+                                    v-model="major_id"
+                                    class="form-control"
+                                    :class="{ 'is-invalid': errors.major_id }"
+                                >
                                     <option value="">Choose Major</option>
                                     <option
                                         :value="major.id"
@@ -29,6 +39,11 @@
                                         {{ major.name }}
                                     </option>
                                 </select>
+                                <span
+                                    class="invalid-feedback"
+                                    v-show="errors.major_id"
+                                    >{{ errors.major_id }}</span
+                                >
                             </div>
 
                             <div class="form-group">
@@ -37,9 +52,15 @@
                                     v-model="phone"
                                     type="number"
                                     class="form-control"
+                                    :class="{ 'is-invalid': errors.phone }"
                                     id=""
                                     placeholder="09***********"
                                 />
+                                <span
+                                    class="invalid-feedback"
+                                    v-show="errors.phone"
+                                    >{{ errors.phone }}</span
+                                >
                             </div>
 
                             <div class="form-group">
@@ -48,9 +69,15 @@
                                     v-model="email"
                                     type="text"
                                     class="form-control"
+                                    :class="{ 'is-invalid': errors.email }"
                                     id=""
                                     placeholder="name@example.com"
                                 />
+                                <span
+                                    class="invalid-feedback"
+                                    v-show="errors.email"
+                                    >{{ errors.email }}</span
+                                >
                             </div>
 
                             <div class="form-group">
@@ -58,8 +85,14 @@
                                 <textarea
                                     v-model="address"
                                     class="form-control"
+                                    :class="{ 'is-invalid': errors.address }"
                                     id=""
                                 ></textarea>
+                                <span
+                                    class="invalid-feedback"
+                                    v-show="errors.address"
+                                    >{{ errors.address }}</span
+                                >
                             </div>
 
                             <div class="d-flex justify-content-between">
@@ -94,7 +127,7 @@ export default {
             address: "",
         };
     },
-    props: { majors: Object },
+    props: { majors: Object, errors: Object },
     components: {
         MasterVue,
         Link,
