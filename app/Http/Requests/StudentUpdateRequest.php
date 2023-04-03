@@ -33,7 +33,7 @@ class StudentUpdateRequest extends FormRequest
     public function messages()
     {
         return [
-            'major_id' => "major field is required",
+            'major_id' => "The major field is required",
         ];
     }
 }

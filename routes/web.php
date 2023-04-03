@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::redirect('/', 'student');
+
 // Major CRUD
 Route::get('/major', [MajorController::class, 'index'])->name('major');
 Route::get('/major/create', [MajorController::class, 'create'])->name('major.create');

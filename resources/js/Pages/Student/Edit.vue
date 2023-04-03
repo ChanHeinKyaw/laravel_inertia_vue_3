@@ -11,15 +11,25 @@
                                 <input
                                     type="text"
                                     class="form-control"
+                                    :class="{ 'is-invalid': errors.name }"
                                     id=""
                                     placeholder="name"
                                     v-model="name"
                                 />
+                                <span
+                                    class="invalid-feedback"
+                                    v-show="errors.name"
+                                    >{{ errors.name }}</span
+                                >
                             </div>
 
                             <div class="form-group">
                                 <label for="">Major</label>
-                                <select class="form-control" v-model="major_id">
+                                <select
+                                    class="form-control"
+                                    :class="{ 'is-invalid': errors.major_id }"
+                                    v-model="major_id"
+                                >
                                     <option value="">Choose Major</option>
                                     <template
                                         v-for="major in majors"
@@ -30,6 +40,11 @@
                                         </option>
                                     </template>
                                 </select>
+                                <span
+                                    class="invalid-feedback"
+                                    v-show="errors.major_id"
+                                    >{{ errors.major_id }}</span
+                                >
                             </div>
 
                             <div class="form-group">
@@ -38,9 +53,15 @@
                                     v-model="phone"
                                     type="number"
                                     class="form-control"
+                                    :class="{ 'is-invalid': errors.phone }"
                                     id=""
                                     placeholder="09***********"
                                 />
+                                <span
+                                    class="invalid-feedback"
+                                    v-show="errors.phone"
+                                    >{{ errors.phone }}</span
+                                >
                             </div>
 
                             <div class="form-group">
@@ -49,18 +70,30 @@
                                     v-model="email"
                                     type="text"
                                     class="form-control"
+                                    :class="{ 'is-invalid': errors.email }"
                                     id=""
                                     placeholder="name@example.com"
                                 />
+                                <span
+                                    class="invalid-feedback"
+                                    v-show="errors.email"
+                                    >{{ errors.email }}</span
+                                >
                             </div>
 
                             <div class="form-group">
                                 <label for="">Address</label>
                                 <textarea
                                     class="form-control"
+                                    :class="{ 'is-invalid': errors.address }"
                                     id=""
                                     v-model="address"
                                 ></textarea>
+                                <span
+                                    class="invalid-feedback"
+                                    v-show="errors.address"
+                                    >{{ errors.address }}</span
+                                >
                             </div>
 
                             <div class="d-flex justify-content-between">
@@ -86,7 +119,7 @@
 import MasterVue from "../Master.vue";
 import { Link } from "@inertiajs/vue3";
 export default {
-    props: { majors: Object, student: Object },
+    props: { majors: Object, student: Object, errors: Object },
     data() {
         return {
             name: "",
