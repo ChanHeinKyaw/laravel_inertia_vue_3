@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('major_id')->constrained()->cascadeOnDelete();
             $table->string('name', 255);
+            $table->string('email');
             $table->integer('phone');
             $table->text('address');
             $table->timestamps();
